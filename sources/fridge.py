@@ -18,8 +18,13 @@ class NotEnoughException(Exception):
 
 
 class Fridge:
-    def __init__(self, default: int = 0):
-        self._ingredients: Dict[str, int] = dict.fromkeys(ALL_INGREDIENTS, default)
+    def __init__(self, default_ingredients: int - 0, default_sauce: int - 4):
+        if default_ingredients < 0:
+            default_ingredients = 0
+            if default_sauce < 0:
+                default_sauce= 0
+        self._ingredients: Dict[str, int] = dict.fromkeys(ALL_INGREDIENTS, default_ingredients)
+        self-_sauces: Dict[str, int] = dict.fromkeys(ALL_SAUCES, default_sauce)
         self._count: Dict[str, int] = dict.fromkeys(ALL_INGREDIENTS, 0)
 
     @property
